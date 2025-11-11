@@ -116,4 +116,61 @@ export default function Projects() {
   );
 }
 
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center opacity-80 mix-blend-screen"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-6 p-8">
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-semibold text-slate-50">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-300">
+                    {project.description}
+                  </p>
+                  <p className="text-sm font-semibold text-cyan-200">
+                    {project.result}
+                  </p>
+                </div>
 
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <span key={item} className="tech-pill">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-auto flex flex-wrap gap-3 text-sm font-semibold">
+                  {project.liveUrl && (
+                    <Link
+                      href={project.liveUrl}
+                      className="primary-btn px-6 py-2 text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live site
+                    </Link>
+                  )}
+                  {project.githubUrl && (
+                    <Link
+                      href={project.githubUrl}
+                      className="secondary-btn px-6 py-2 text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
