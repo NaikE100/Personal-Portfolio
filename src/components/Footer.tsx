@@ -1,13 +1,29 @@
+const footerLinks = [
+  { label: "Email", href: "mailto:tiaan@unfilteredventures.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/tiaan-saayman" },
+  { label: "GitHub", href: "https://github.com/unfilteredventures" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 p-4 text-white mt-8">
-      <div className="container mx-auto text-center">
-        <p>&copy; {new Date().getFullYear()} Unfiltered Ventures. All rights reserved.</p>
-        <div className="flex justify-center space-x-4 mt-2">
-          {/* Placeholder for social media links */}
-          <a href="#" className="hover:text-gray-300">LinkedIn</a>
-          <a href="#" className="hover:text-gray-300">GitHub</a>
+    <footer className="border-t border-white/10 bg-slate-950/80 py-10">
+      <div className="wrapper flex flex-col items-center justify-between gap-6 text-center text-sm text-slate-400 md:flex-row md:text-left">
+        <div>
+          <p className="text-slate-200">
+            © {new Date().getFullYear()} Unfiltered Ventures. Crafted in George,
+            South Africa.
+          </p>
+          <p className="mt-1">
+            Available for project-based collaborations and long-term retainers.
+          </p>
         </div>
+        <nav className="flex flex-wrap justify-center gap-4 text-slate-300">
+          {footerLinks.map((link) => (
+            <a key={link.label} href={link.href} className="hover:text-cyan-300">
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </footer>
   );
